@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://mingxiaozhou.com//"/>
-  <updated>2015-07-14T14:28:22.000Z</updated>
+  <updated>2015-07-28T13:42:09.000Z</updated>
   <id>http://mingxiaozhou.com//</id>
   
   <author>
@@ -14,6 +14,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[如何开发HTML5离线应用]]></title>
+    <link href="http://mingxiaozhou.com/2015/07/28/%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91HTML5%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8/"/>
+    <id>http://mingxiaozhou.com/2015/07/28/如何开发HTML5离线应用/</id>
+    <published>2015-07-28T13:39:07.000Z</published>
+    <updated>2015-07-28T13:42:09.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="HTML5离线应用">HTML5离线应用</h2><p>开发一个离线应用需要具备以下<strong>3</strong>个条件：</p>
+<ol>
+<li>编写一个manifest类型文件，列出需要通过浏览器缓存至本地的资源性文件。</li>
+<li>在HTML页面中，通过<code>&lt;html&gt;</code>标签的<code>manifest</code>属性将<strong>manifest</strong>文件与页面绑定。</li>
+<li>对服务器端进行配置，使其能读取<code>manifest</code>类型的文件。</li>
+</ol>
+<h3 id="Manifest_文件">Manifest 文件</h3><p>manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。<br>manifest 文件分为三个部分：</p>
+<ol>
+<li><strong>CACHE MANIFEST</strong> - 在此标题下列出的文件将在首次下载后进行缓存</li>
+<li><strong>NETWORK</strong> - 在此标题下列出的文件需要与服务器的连接，且不会被缓存</li>
+<li><strong>FALLBACK</strong> - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）</li>
+</ol>
+<h4 id="CACHE_MANIFEST">CACHE MANIFEST</h4><p>第一行，CACHE MANIFEST，是必需的：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CACHE MANIFEST</span><br><span class="line">/theme<span class="class">.css</span></span><br><span class="line">/logo<span class="class">.gif</span></span><br><span class="line">/main.js</span><br></pre></td></tr></table></figure>
+<p>上面的 manifest 文件列出了三个资源：一个 CSS 文件，一个 GIF 图像，以及一个 JavaScript 文件。当 manifest 文件加载后，浏览器会从网站的根目录下载这三个文件。然后，无论用户何时与因特网断开连接，这些资源依然是可用的。</p>
+<h4 id="NETWORK">NETWORK</h4><p>下面的 NETWORK 小节规定文件 “login.html” 永远不会被缓存，且离线时是不可用的：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">NETWORK:</span></span><br><span class="line">login.html</span><br></pre></td></tr></table></figure>
+<p>可以使用星号来指示所有其他资源/文件都需要因特网连接：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">NETWORK:</span></span><br><span class="line">*</span><br></pre></td></tr></table></figure>
+<h4 id="FALLBACK">FALLBACK</h4><p>下面的 FALLBACK 小节规定如果无法建立因特网连接，则用 “offline.html” 替代 /html5/ 目录中的所有文件：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">FALLBACK:</span></span><br><span class="line"><span class="regexp">/html5/</span> /<span class="number">404.</span>html</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong>第一个 URI 是资源，第二个是替补。</p>
+</blockquote>
+<h4 id="更新缓存">更新缓存</h4><p>一旦应用被缓存，它就会保持缓存直到发生下列情况：</p>
+<ul>
+<li>用户清空浏览器缓存</li>
+<li>manifest 文件被修改</li>
+<li>由程序来更新应用缓存</li>
+</ul>
+<h4 id="完整的_Manifest_文件">完整的 Manifest 文件</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CACHE MANIFEST</span><br><span class="line"><span class="preprocessor"># 2015-02-21 v1.0.0</span></span><br><span class="line">/theme.css</span><br><span class="line">/logo.gif</span><br><span class="line">/main.js</span><br><span class="line"></span><br><span class="line"><span class="label">NETWORK:</span></span><br><span class="line">login.html</span><br><span class="line"></span><br><span class="line"><span class="label">FALLBACK:</span></span><br><span class="line">/html5/ /<span class="number">404.</span>html</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>提示：</strong>以 “#” 开头的是注释行，但也可满足其他用途。应用的缓存会在其 manifest 文件更改时被更新。如果编辑了一幅图片，或者修改了一个 JavaScript 函数，这些改变都不会被重新缓存。更新注释行中的日期和版本号是一种使浏览器重新缓存文件的办法。</p>
+</blockquote>
+<h3 id="绑定到&lt;html&gt;标签">绑定到<code>&lt;html&gt;</code>标签</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">manifest</span>=<span class="value">"demo.appcache"</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>manifest 文件的建议的文件扩展名是：<strong><code>.appcache</code></strong>。</p>
+<h3 id="服务器端配置MIME-type">服务器端配置MIME-type</h3><p>修改<code>nginx</code>或<code>Apache</code>配置文件中的<strong><code>mime.types</code></strong>文件<br>添加<code>text/cache-manifest appcache manifest;</code></p>
+<h3 id="数据交互流程">数据交互流程</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Client-&#62;Server: &#35831;&#27714;xx.html&#10;Server--&#62;Client: &#36820;&#22238;xx.html&#10;Note left of Client: &#35299;&#26512;xx.html&#10;Client-&#62;Server: &#35831;&#27714;xx.html&#21253;&#21547;&#30340;&#36164;&#28304;&#25991;&#20214;&#65292;&#21253;&#25324;manifest&#25991;&#20214;&#10;Server--&#62;Client: &#36820;&#22238;&#35831;&#27714;&#30340;&#36164;&#28304;&#25991;&#20214;&#10;Note left of Client: &#35299;&#26512;&#36820;&#22238;&#30340;manifest&#25991;&#20214;&#10;Client-&#62;Server: &#35831;&#27714;manifest&#28165;&#21333;&#20013;&#30340;&#36164;&#28304;&#25991;&#20214;&#10;Server--&#62;Client: &#20877;&#27425;&#36820;&#22238;&#28165;&#21333;&#25152;&#21015;&#30340;&#36164;&#28304;&#25991;&#20214;&#10;Note left of Client: &#23558;&#28165;&#21333;&#20013;&#30340;&#36164;&#28304;&#25991;&#20214;&#26356;&#26032;&#33267;&#26412;&#22320;&#32531;&#23384;&#20013;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意</strong>在进行更新本地缓存的过程中会触发一个<code>onUpdateReady</code>事件，表示本地缓存更新完成。</p>
+</blockquote>
+<h2 id="HTML5_ApplictionCache事件">HTML5 ApplictionCache事件</h2><h3 id="检测本地缓存是否更新">检测本地缓存是否更新</h3><p>开发中通过调用<code>applicationCache</code>对象的<code>onUpdateReady</code>事件，可以监测到本地缓存是否更新。因为缓存清单文件可能会在脚本添加事件前完成更新，所以脚本应该始终检测 <code>window.applicationCache.status</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onUpdateReady</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="string">'found new version!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'updateready'</span>, onUpdateReady);</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.applicationCache.status === <span class="built_in">window</span>.applicationCache.UPDATEREADY)&#123;</span><br><span class="line">	onUpdateReady();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="手动更新本地缓存">手动更新本地缓存</h3><p>当触发<code>updateready</code>事件时，标志着对本地缓存进行了更新。除此之外，还可以通过手动的方法更新本地缓存。方法有以下两种：</p>
+<ol>
+<li><p>调用<code>update</code>方法更新<br> <code>window.applicationCahce.update();</code></p>
+</li>
+<li><p>使用<code>swapCache</code>方法更新<br> <code>window.applicationCahce.swapCache();</code></p>
+</li>
+</ol>
+<p>这两种方法的不同点：</p>
+<ul>
+<li>更新本地缓存的时间不一样：<code>swapCache()早于方法</code>update()<code>更新，</code>swapCache()`是将本地缓存立即更新。</li>
+<li>触发事件不一样：<code>swapCache()</code>必须在<code>updateready</code>事件中才能调用，<code>update()</code>可以随时调用。</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong>无论使用哪种方法，当前页面都不会立即显示本地缓存更新后的页面效果，都要重新加载或刷新页面才能看到。</p>
+</blockquote>
+<h3 id="更新本地缓存时的其他事件">更新本地缓存时的其他事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'checking'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//清单已经获取完毕并检查更新。</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'正检测是否有更新...'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'downloading'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//下载资源并准备加入到缓存中，这是由于清单变化引起的。</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'正在下载可用的缓存...'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'noupdate'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'没有最新缓存更新'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'progress'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'本地缓存正在更新中...'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'cached'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'本地缓存已更新成功'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'本地缓存更新时出错'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="HTML5离线应用">HTML5离线应用</h2><p>开发一个离线应用需要具备以下<strong>3</strong>个条件：</p>
+<ol>
+<li>编写一个manifest类型文件，列出需要通过浏览器缓存至本地的资源性文件。</li>
+<li>在HTML页]]>
+    </summary>
+    
+      <category term="cache" scheme="http://mingxiaozhou.com/tags/cache/"/>
+    
+      <category term="html5" scheme="http://mingxiaozhou.com/tags/html5/"/>
+    
+      <category term="离线应用" scheme="http://mingxiaozhou.com/tags/%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[TouchEvent创建方法和各浏览器不同的初始化方法]]></title>

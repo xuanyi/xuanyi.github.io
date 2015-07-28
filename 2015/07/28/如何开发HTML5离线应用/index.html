@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>如何开发HTML5离线应用 | 静心雅居</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTML5离线应用开发一个离线应用需要具备以下3个条件：
+
+编写一个manifest类型文件，列出需要通过浏览器缓存至本地的资源性文件。
+在HTML页面中，通过&amp;lt;html&amp;gt;标签的manifest属性将manifest文件与页面绑定。
+对服务器端进行配置，使其能读取manifest类型的文件。
+
+Manifest 文件manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何开发HTML5离线应用">
+<meta property="og:url" content="http://mingxiaozhou.com/2015/07/28/如何开发HTML5离线应用/index.html">
+<meta property="og:site_name" content="静心雅居">
+<meta property="og:description" content="HTML5离线应用开发一个离线应用需要具备以下3个条件：
+
+编写一个manifest类型文件，列出需要通过浏览器缓存至本地的资源性文件。
+在HTML页面中，通过&amp;lt;html&amp;gt;标签的manifest属性将manifest文件与页面绑定。
+对服务器端进行配置，使其能读取manifest类型的文件。
+
+Manifest 文件manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及">
+<meta property="og:updated_time" content="2015-07-28T13:42:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何开发HTML5离线应用">
+<meta name="twitter:description" content="HTML5离线应用开发一个离线应用需要具备以下3个条件：
+
+编写一个manifest类型文件，列出需要通过浏览器缓存至本地的资源性文件。
+在HTML页面中，通过&amp;lt;html&amp;gt;标签的manifest属性将manifest文件与页面绑定。
+对服务器端进行配置，使其能读取manifest类型的文件。
+
+Manifest 文件manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及">
+  
+    <link rel="alternative" href="/atom.xml" title="静心雅居" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="img/avatar03.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">玄一</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags">标签</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/xuanyi" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/initTouchEvent/" style="font-size: 10px;">initTouchEvent</a> <a href="/tags/touchEvent/" style="font-size: 10px;">touchEvent</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/离线应用/" style="font-size: 10px;">离线应用</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">君子藏器于身，待时而动。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">玄一</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="img/avatar03.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">玄一</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags">标签</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/xuanyi" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-如何开发HTML5离线应用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/28/如何开发HTML5离线应用/" class="article-date">
+  	<time datetime="2015-07-28T13:39:07.000Z" itemprop="datePublished">2015-07-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何开发HTML5离线应用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cache/">cache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/离线应用/">离线应用</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTML5离线应用">HTML5离线应用</h2><p>开发一个离线应用需要具备以下<strong>3</strong>个条件：</p>
+<ol>
+<li>编写一个manifest类型文件，列出需要通过浏览器缓存至本地的资源性文件。</li>
+<li>在HTML页面中，通过<code>&lt;html&gt;</code>标签的<code>manifest</code>属性将<strong>manifest</strong>文件与页面绑定。</li>
+<li>对服务器端进行配置，使其能读取<code>manifest</code>类型的文件。</li>
+</ol>
+<h3 id="Manifest_文件">Manifest 文件</h3><p>manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。<br>manifest 文件分为三个部分：</p>
+<ol>
+<li><strong>CACHE MANIFEST</strong> - 在此标题下列出的文件将在首次下载后进行缓存</li>
+<li><strong>NETWORK</strong> - 在此标题下列出的文件需要与服务器的连接，且不会被缓存</li>
+<li><strong>FALLBACK</strong> - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）</li>
+</ol>
+<h4 id="CACHE_MANIFEST">CACHE MANIFEST</h4><p>第一行，CACHE MANIFEST，是必需的：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CACHE MANIFEST</span><br><span class="line">/theme<span class="class">.css</span></span><br><span class="line">/logo<span class="class">.gif</span></span><br><span class="line">/main.js</span><br></pre></td></tr></table></figure>
+<p>上面的 manifest 文件列出了三个资源：一个 CSS 文件，一个 GIF 图像，以及一个 JavaScript 文件。当 manifest 文件加载后，浏览器会从网站的根目录下载这三个文件。然后，无论用户何时与因特网断开连接，这些资源依然是可用的。</p>
+<h4 id="NETWORK">NETWORK</h4><p>下面的 NETWORK 小节规定文件 “login.html” 永远不会被缓存，且离线时是不可用的：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">NETWORK:</span></span><br><span class="line">login.html</span><br></pre></td></tr></table></figure>
+<p>可以使用星号来指示所有其他资源/文件都需要因特网连接：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">NETWORK:</span></span><br><span class="line">*</span><br></pre></td></tr></table></figure>
+<h4 id="FALLBACK">FALLBACK</h4><p>下面的 FALLBACK 小节规定如果无法建立因特网连接，则用 “offline.html” 替代 /html5/ 目录中的所有文件：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">FALLBACK:</span></span><br><span class="line"><span class="regexp">/html5/</span> /<span class="number">404.</span>html</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong>第一个 URI 是资源，第二个是替补。</p>
+</blockquote>
+<h4 id="更新缓存">更新缓存</h4><p>一旦应用被缓存，它就会保持缓存直到发生下列情况：</p>
+<ul>
+<li>用户清空浏览器缓存</li>
+<li>manifest 文件被修改</li>
+<li>由程序来更新应用缓存</li>
+</ul>
+<h4 id="完整的_Manifest_文件">完整的 Manifest 文件</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CACHE MANIFEST</span><br><span class="line"><span class="preprocessor"># 2015-02-21 v1.0.0</span></span><br><span class="line">/theme.css</span><br><span class="line">/logo.gif</span><br><span class="line">/main.js</span><br><span class="line"></span><br><span class="line"><span class="label">NETWORK:</span></span><br><span class="line">login.html</span><br><span class="line"></span><br><span class="line"><span class="label">FALLBACK:</span></span><br><span class="line">/html5/ /<span class="number">404.</span>html</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>提示：</strong>以 “#” 开头的是注释行，但也可满足其他用途。应用的缓存会在其 manifest 文件更改时被更新。如果编辑了一幅图片，或者修改了一个 JavaScript 函数，这些改变都不会被重新缓存。更新注释行中的日期和版本号是一种使浏览器重新缓存文件的办法。</p>
+</blockquote>
+<h3 id="绑定到&lt;html&gt;标签">绑定到<code>&lt;html&gt;</code>标签</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">manifest</span>=<span class="value">"demo.appcache"</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>manifest 文件的建议的文件扩展名是：<strong><code>.appcache</code></strong>。</p>
+<h3 id="服务器端配置MIME-type">服务器端配置MIME-type</h3><p>修改<code>nginx</code>或<code>Apache</code>配置文件中的<strong><code>mime.types</code></strong>文件<br>添加<code>text/cache-manifest appcache manifest;</code></p>
+<h3 id="数据交互流程">数据交互流程</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Client-&#62;Server: &#35831;&#27714;xx.html&#10;Server--&#62;Client: &#36820;&#22238;xx.html&#10;Note left of Client: &#35299;&#26512;xx.html&#10;Client-&#62;Server: &#35831;&#27714;xx.html&#21253;&#21547;&#30340;&#36164;&#28304;&#25991;&#20214;&#65292;&#21253;&#25324;manifest&#25991;&#20214;&#10;Server--&#62;Client: &#36820;&#22238;&#35831;&#27714;&#30340;&#36164;&#28304;&#25991;&#20214;&#10;Note left of Client: &#35299;&#26512;&#36820;&#22238;&#30340;manifest&#25991;&#20214;&#10;Client-&#62;Server: &#35831;&#27714;manifest&#28165;&#21333;&#20013;&#30340;&#36164;&#28304;&#25991;&#20214;&#10;Server--&#62;Client: &#20877;&#27425;&#36820;&#22238;&#28165;&#21333;&#25152;&#21015;&#30340;&#36164;&#28304;&#25991;&#20214;&#10;Note left of Client: &#23558;&#28165;&#21333;&#20013;&#30340;&#36164;&#28304;&#25991;&#20214;&#26356;&#26032;&#33267;&#26412;&#22320;&#32531;&#23384;&#20013;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意</strong>在进行更新本地缓存的过程中会触发一个<code>onUpdateReady</code>事件，表示本地缓存更新完成。</p>
+</blockquote>
+<h2 id="HTML5_ApplictionCache事件">HTML5 ApplictionCache事件</h2><h3 id="检测本地缓存是否更新">检测本地缓存是否更新</h3><p>开发中通过调用<code>applicationCache</code>对象的<code>onUpdateReady</code>事件，可以监测到本地缓存是否更新。因为缓存清单文件可能会在脚本添加事件前完成更新，所以脚本应该始终检测 <code>window.applicationCache.status</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onUpdateReady</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="string">'found new version!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'updateready'</span>, onUpdateReady);</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.applicationCache.status === <span class="built_in">window</span>.applicationCache.UPDATEREADY)&#123;</span><br><span class="line">	onUpdateReady();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="手动更新本地缓存">手动更新本地缓存</h3><p>当触发<code>updateready</code>事件时，标志着对本地缓存进行了更新。除此之外，还可以通过手动的方法更新本地缓存。方法有以下两种：</p>
+<ol>
+<li><p>调用<code>update</code>方法更新<br> <code>window.applicationCahce.update();</code></p>
+</li>
+<li><p>使用<code>swapCache</code>方法更新<br> <code>window.applicationCahce.swapCache();</code></p>
+</li>
+</ol>
+<p>这两种方法的不同点：</p>
+<ul>
+<li>更新本地缓存的时间不一样：<code>swapCache()早于方法</code>update()<code>更新，</code>swapCache()`是将本地缓存立即更新。</li>
+<li>触发事件不一样：<code>swapCache()</code>必须在<code>updateready</code>事件中才能调用，<code>update()</code>可以随时调用。</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong>无论使用哪种方法，当前页面都不会立即显示本地缓存更新后的页面效果，都要重新加载或刷新页面才能看到。</p>
+</blockquote>
+<h3 id="更新本地缓存时的其他事件">更新本地缓存时的其他事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'checking'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//清单已经获取完毕并检查更新。</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'正检测是否有更新...'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'downloading'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//下载资源并准备加入到缓存中，这是由于清单变化引起的。</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'正在下载可用的缓存...'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'noupdate'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'没有最新缓存更新'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'progress'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'本地缓存正在更新中...'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'cached'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'本地缓存已更新成功'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'本地缓存更新时出错'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/07/14/TouchEvent创建方法和各浏览器不同的初始化方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TouchEvent创建方法和各浏览器不同的初始化方法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="如何开发HTML5离线应用" data-title="如何开发HTML5离线应用" data-url="http://mingxiaozhou.com/2015/07/28/如何开发HTML5离线应用/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"mingxiaozhou"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 玄一
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
